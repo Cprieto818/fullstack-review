@@ -1,76 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>
-        Welcome Jr pilot!
-    </h1>
-    <div>
-        <h2>login or register </h2>
-    </div>
-    <div class="d-flex justify-content-around">
-        <form action="/register" method="post" class="col-4 p-4 bg-dark text-light">
-            <h2 class="text-primary">Register</h2>
-            {% with messages = get_flashed_messages(category_filter=['register']) %}
-                {% if messages %}
-                <div class="alert alert-danger" role="alert">
-                        {% for message in messages %}
-                        <p>{{message}}</p>
-                        {% endfor %}
-                </div>
-                {% endif %}
-            {% endwith %}
-            <div class="mb-3">
-                <label for="first_name" class="form-label">First Name:</label>
-                <input type="text" class="form-control" name="first_name">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website with Login & Registration Form</title>
+    <link rel="stylesheet" href="/flask_app/static/style.css"/>
+    <!-- Unicons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav_logo">CodingLab</a>
+        <ul class="nav_items">
+          <li class="nav_item">
+            <a href="#" class="nav_link">Home</a>
+            <a href="#" class="nav_link">Product</a>
+            <a href="#" class="nav_link">Services</a>
+            <a href="#" class="nav_link">Contact</a>
+          </li>
+        </ul>
+        <button class="button" id="form-open">Login</button>
+      </nav>
+    </header>
+    <!-- Home -->
+    <section class="home">
+      <div class="form_container">
+        <i class="uil uil-times form_close"></i>
+        <!-- Login From -->
+        <div class="form login_form">
+          <form action="#">
+            <h2>Login</h2>
+            <div class="input_box">
+              <input type="email" placeholder="Enter your email" required />
+              <i class="uil uil-envelope-alt email"></i>
             </div>
-            <div class="mb-3">
-                <label for="last_name" class="form-label">Last Name:</label>
-                <input type="text" class="form-control" name="last_name">
+            <div class="input_box">
+              <input type="password" placeholder="Enter your password" required />
+              <i class="uil uil-lock password"></i>
+              <i class="uil uil-eye-slash pw_hide"></i>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address:</label>
-                <input type="text" class="form-control" name="email">
-                
+            <div class="option_field">
+              <span class="checkbox">
+                <input type="checkbox" id="check" />
+                <label for="check">Remember me</label>
+              </span>
+              <a href="#" class="forgot_pw">Forgot password?</a>
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" class="form-control" name="password">
+            <button class="button">Login Now</button>
+            <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+          </form>
+        </div>
+        <!-- Signup From -->
+        <div class="form signup_form">
+          <form action="#">
+            <h2>Signup</h2>
+            <div class="input_box">
+              <input type="email" placeholder="Enter your email" required />
+              <i class="uil uil-envelope-alt email"></i>
             </div>
-            <div class="mb-3">
-                <label for="confirm" class="form-label">ReType Password:</label>
-                <input type="password" class="form-control" name="confirm">
+            <div class="input_box">
+              <input type="password" placeholder="Create password" required />
+              <i class="uil uil-lock password"></i>
+              <i class="uil uil-eye-slash pw_hide"></i>
             </div>
-            <input type="submit" value="Register" class="btn btn-primary">
-        </form>
-
-        <form action="/login" method="post" class="col-4 p-4 bg-dark text-light">
-            <h2 class="text-primary">Login</h2>
-            {% with messages = get_flashed_messages(category_filter=['login']) %}
-                {% if messages %}
-                <div class="alert alert-danger" role="alert">
-                    <strong>Flash Login Error!</strong>
-                        {% for message in messages %}
-                        <p>{{message}}</p>
-                        {% endfor %}
-                </div>
-                {% endif %}
-            {% endwith %}
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+            <div class="input_box">
+              <input type="password" placeholder="Confirm password" required />
+              <i class="uil uil-lock password"></i>
+              <i class="uil uil-eye-slash pw_hide"></i>
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password">
-            </div>
-            <button type="submit" value="Login" class="btn btn-primary">Login</button>
-        
-        </form>
-    
-</body>
+            <button class="button">Signup Now</button>
+            <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="/flask_app/static/script.js"></script>
+  </body>
 </html>
